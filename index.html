@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Toolkit</title>
+  <link rel="stylesheet" href="style.css">
+  <header class="site-header">
+  <h1>Student Toolkit</h1>
+  <p>대학 생활에 필요한 작은 도구를 한 페이지에 모았습니다.</p>
+</header>
+
+<main class="card-grid">
+
+  <!-- 1. 글자 수 계산기 -->
+  <section class="card" id="card-counter" aria-labelledby="title-counter">
+    <h2 id="title-counter">글자 수 계산기</h2>
+    <p class="desc">과제나 자기소개서의 글자 수를 확인합니다.</p>
+
+    <div class="field">
+      <label for="counter-text">내용</label>
+      <textarea id="counter-text" rows="5" placeholder="글을 입력하세요"></textarea>
+    </div>
+    <div class="field">
+      <label for="counter-limit">목표 글자 수</label>
+      <select id="counter-limit">
+        <option value="0">제한 없음</option>
+        <option value="500">500자</option>
+        <option value="1000">1,000자</option>
+        <option value="2000">2,000자</option>
+      </select>
+    </div>
+    <label class="choice">
+      <input type="checkbox" id="counter-exclude"> 공백 제외
+    </label>
+
+    <div class="actions">
+      <button type="button" id="counter-run" class="primary">계산하기</button>
+      <button type="button" id="counter-reset">초기화</button>
+    </div>
+
+    <div class="result" id="counter-result" aria-live="polite">
+      글자 수: <strong>0</strong>자 · 단어 수: <strong>0</strong>개
+    </div>
+  </section>
+
+  <!-- 2. D-day 계산기 -->
+  <section class="card" id="card-dday" aria-labelledby="title-dday">
+    <h2 id="title-dday">D-day 계산기</h2>
+    <p class="desc">시험, 과제 마감일까지 남은 날을 계산합니다.</p>
+
+    <div class="field">
+      <label for="dday-name">일정 이름</label>
+      <input type="text" id="dday-name" placeholder="예: 기말고사">
+    </div>
+    <div class="field">
+      <label for="dday-date">목표 날짜</label>
+      <input type="date" id="dday-date">
+    </div>
+    <label class="choice">
+      <input type="checkbox" id="dday-include-today"> 지난 날짜는 그날을 1일로 계산
+    </label>
+
+    <div class="actions">
+      <button type="button" id="dday-run" class="primary">D-day 확인</button>
+      <button type="button" id="dday-reset">초기화</button>
+    </div>
+
+    <div class="result" id="dday-result" aria-live="polite">
+      <span class="big">D-?</span>
+    </div>
+  </section>
+
+  <!-- 3. 랜덤 순서 정하기 -->
+  <section class="card" id="card-order" aria-labelledby="title-order">
+    <h2 id="title-order">랜덤 순서 정하기</h2>
+    <p class="desc">발표 순서나 당번을 무작위로 정합니다.</p>
+
+    <div class="field">
+      <label for="order-names">이름 (한 줄에 한 명)</label>
+      <textarea id="order-names" rows="4" placeholder="민지&#10;서준&#10;하늘"></textarea>
+    </div>
+    <fieldset>
+      <legend>뽑는 방식</legend>
+      <label class="choice">
+        <input type="radio" id="order-mode-all" name="order-mode" value="all" checked> 전체 순서
+      </label>
+      <label class="choice">
+        <input type="radio" id="order-mode-one" name="order-mode" value="one"> 한 명만
+      </label>
+    </fieldset>
+
+    <div class="actions">
+      <button type="button" id="order-run" class="primary">순서 정하기</button>
+      <button type="button" id="order-reset">초기화</button>
+    </div>
+
+    <div class="result" id="order-result" aria-live="polite">
+      결과가 여기에 표시됩니다.
+    </div>
+  </section>
+
+  <!-- 4. 팀 구성하기 -->
+  <section class="card" id="card-team" aria-labelledby="title-team">
+    <h2 id="title-team">팀 구성하기</h2>
+    <p class="desc">조별 과제 팀을 무작위로 나눕니다.</p>
+
+    <div class="field">
+      <label for="team-names">참여자 (한 줄에 한 명)</label>
+      <textarea id="team-names" rows="4" placeholder="이름을 입력하세요"></textarea>
+    </div>
+    <fieldset>
+      <legend>나누는 기준</legend>
+      <label class="choice">
+        <input type="radio" id="team-by-count" name="team-mode" value="count" checked> 팀 수 기준
+      </label>
+      <label class="choice">
+        <input type="radio" id="team-by-size" name="team-mode" value="size"> 팀당 인원 기준
+      </label>
+    </fieldset>
+    <div class="field">
+      <label for="team-number">팀 수 또는 팀당 인원</label>
+      <input type="number" id="team-number" min="1" value="2">
+    </div>
+    <label class="choice">
+      <input type="checkbox" id="team-leader"> 팀장도 함께 뽑기
+    </label>
+
+    <div class="actions">
+      <button type="button" id="team-run" class="primary">팀 구성하기</button>
+    </div>
+
+    <div class="result" id="team-result" aria-live="polite">
+      팀 구성 결과가 여기에 표시됩니다.
+    </div>
+  </section>
+
+  <!-- 5. 발표 시간 계산기 -->
+  <section class="card" id="card-speech" aria-labelledby="title-speech">
+    <h2 id="title-speech">발표 시간 계산기</h2>
+    <p class="desc">대본을 읽는 데 걸리는 시간을 예상합니다.</p>
+
+    <div class="field">
+      <label for="speech-script">발표 대본</label>
+      <textarea id="speech-script" rows="5" placeholder="대본을 붙여 넣으세요"></textarea>
+    </div>
+    <div class="field">
+      <label for="speech-speed">말하기 속도</label>
+      <select id="speech-speed">
+        <option value="slow">느리게 (250자/분)</option>
+        <option value="normal" selected>보통 (300자/분)</option>
+        <option value="fast">빠르게 (350자/분)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="speech-limit">제한 시간 (분)</label>
+      <input type="number" id="speech-limit" min="1" value="5">
+    </div>
+
+    <div class="actions">
+      <button type="button" id="speech-run" class="primary">시간 계산</button>
+    </div>
+
+    <div class="result" id="speech-result" aria-live="polite">
+      예상 발표 시간: <strong>0분 0초</strong>
+    </div>
+    <p class="note">※ 예상치이며 실제 발표 시간과 다를 수 있습니다.</p>
+  </section>
+
+  <!-- 6. 스톱워치 -->
+  <section class="card" id="card-stopwatch" aria-labelledby="title-stopwatch">
+    <h2 id="title-stopwatch">스톱워치</h2>
+    <p class="desc">발표 연습이나 공부 시간을 잽니다.</p>
+
+    <div class="timer" id="stopwatch-display" role="timer">00:00</div>
+
+    <label class="choice">
+      <input type="checkbox" id="stopwatch-show-laps" checked> 랩 기록 보기
+    </label>
+
+    <div class="actions">
+      <button type="button" id="stopwatch-start" class="primary">시작</button>
+      <button type="button" id="stopwatch-stop">정지</button>
+      <button type="button" id="stopwatch-lap">랩</button>
+      <button type="button" id="stopwatch-reset">초기화</button>
+    </div>
+
+    <div class="result" id="stopwatch-result" aria-live="polite">
+      랩 기록이 없습니다.
+    </div>
+  </section>
+
+  <!-- 7. BMI 계산기 -->
+  <section class="card" id="card-bmi" aria-labelledby="title-bmi">
+    <h2 id="title-bmi">BMI 계산기</h2>
+    <p class="desc">키와 몸무게로 체질량지수를 계산합니다.</p>
+
+    <div class="field">
+      <label for="bmi-height">키 (cm)</label>
+      <input type="number" id="bmi-height" min="50" max="250" step="0.1" placeholder="예: 170">
+    </div>
+    <div class="field">
+      <label for="bmi-weight">몸무게 (kg)</label>
+      <input type="number" id="bmi-weight" min="10" max="300" step="0.1" placeholder="예: 60">
+    </div>
+    <fieldset>
+      <legend>판정 기준</legend>
+      <label class="choice">
+        <input type="radio" id="bmi-standard-kr" name="bmi-standard" value="kr" checked> 국내(아시아) 기준
+      </label>
+      <label class="choice">
+        <input type="radio" id="bmi-standard-who" name="bmi-standard" value="who"> WHO 기준
+      </label>
+    </fieldset>
+
+    <div class="actions">
+      <button type="button" id="bmi-run" class="primary">BMI 계산</button>
+    </div>
+
+    <div class="result" id="bmi-result" aria-live="polite">
+      BMI: <strong>-</strong>
+    </div>
+    <p class="note">※ BMI는 참고용 지표이며 건강 진단이 아닙니다.</p>
+  </section>
+
+  <!-- 8. 준비물 체크리스트 -->
+  <section class="card" id="card-checklist" aria-labelledby="title-checklist">
+    <h2 id="title-checklist">준비물 체크리스트</h2>
+    <p class="desc">등교나 시험 전에 준비물을 확인합니다.</p>
+
+    <div class="field">
+      <label for="checklist-category">상황</label>
+      <select id="checklist-category">
+        <option value="class">수업</option>
+        <option value="exam">시험</option>
+        <option value="trip">MT</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="checklist-input">준비물 추가</label>
+      <div class="input-row">
+        <input type="text" id="checklist-input" placeholder="예: 충전기">
+        <button type="button" id="checklist-add">추가</button>
+      </div>
+    </div>
+
+    <ul class="checklist" id="checklist-items"></ul>
+
+    <div class="actions">
+      <button type="button" id="checklist-reset">체크 모두 해제</button>
+    </div>
+
+    <div class="result" id="checklist-result" aria-live="polite">
+      전체 0개 · 완료 0개
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Student Toolkit</p>
+</footer>

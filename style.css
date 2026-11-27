@@ -1,0 +1,317 @@
+/* ===== Pink theme: change colors here ===== */
+:root {
+  --bg: #fff6f9;
+  --card: #ffffff;
+  --text: #4a3540;
+  --muted: #8a6a79;
+  --line: #f6d5e0;
+  --pink: #f9bdd1;
+  --pink-dark: #b83a69;
+  --pink-soft: #fff0f5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-rounded, system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ===== Header / footer ===== */
+.site-header {
+  text-align: center;
+  padding: 44px 16px 28px;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  color: var(--pink-dark);
+}
+
+.site-header h1::before,
+.site-header h1::after {
+  content: "♡";
+  margin: 0 10px;
+  font-weight: 400;
+}
+
+.site-header p,
+.site-footer {
+  color: var(--muted);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 28px 16px;
+  font-size: 0.85rem;
+}
+
+/* ===== Cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 24px;
+  padding: 22px;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  color: var(--pink-dark);
+}
+
+.card h2::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: -8px;
+}
+
+/* ===== Inputs ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field > label,
+legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: inherit;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 9px 13px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::placeholder {
+  color: #b595a3;
+}
+
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 4px;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #e0628f;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.input-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Buttons ===== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  color: var(--pink-dark);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 15px;
+  min-height: 42px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: var(--pink-soft);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button.primary {
+  flex: 1;
+  color: #5c1f38;
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+button.primary:hover {
+  background: #f6a9c3;
+}
+
+:focus-visible {
+  outline: 3px solid #e0628f;
+  outline-offset: 2px;
+}
+
+/* ===== Results ===== */
+.result {
+  margin-top: auto;
+  background: var(--pink-soft);
+  border-radius: 16px;
+  padding: 14px 16px;
+  min-height: 52px;
+  overflow-wrap: anywhere;
+}
+
+.result.error {
+  color: #a81f2d;
+  background: #ffe8e6;
+}
+
+.result ol {
+  padding-left: 24px;
+}
+
+.team + .team {
+  margin-top: 10px;
+}
+
+.team ul {
+  padding-left: 20px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.big {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+}
+
+.timer {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--pink-dark);
+  background: var(--pink-soft);
+  border-radius: 999px;
+  padding: 10px 0;
+}
+
+/* ===== Checklist ===== */
+.checklist {
+  list-style: none;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+}
+
+.checklist li .choice {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.checklist li.done span {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.checklist button {
+  min-height: 32px;
+  padding: 2px 12px;
+  font-size: 0.8rem;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .site-header {
+    padding-top: 28px;
+  }
+
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card-grid {
+    gap: 14px;
+    padding: 0 12px;
+  }
+
+  .card {
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
